@@ -19,5 +19,13 @@ namespace TetrisV0.Model
             blocks[0, 0] = 1;
             blocks[1, 0] = 1;
         }
+
+        public void down()
+        {
+            int width = TetrisInstance.model.setting.Width;
+            int height = TetrisInstance.model.setting.Height;
+
+
+        }
     }
 }
