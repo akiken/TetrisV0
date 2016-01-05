@@ -13,6 +13,10 @@ namespace TetrisV0.Control
         public TetrisControl()
         {
         }
-    }
 
+        public void configure()
+        {
+
+        }
+    }
 }

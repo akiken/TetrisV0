@@ -11,8 +11,8 @@ namespace TetrisV0
 {
     class TetrisInstance
     {
-        public static TetrisView view;
-        public static TetrisControl control;
-        public static TetrisModel model;
+        public static TetrisView view = new TetrisView();
+        public static TetrisControl control = new TetrisControl();
+        public static TetrisModel model = new TetrisModel();
     }
 }

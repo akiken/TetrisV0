@@ -16,8 +16,11 @@ namespace TetrisV0.Model
         public TetrisModel()
         {
             setting = new GameSetting();
-            blockPosition = new BlockPositionHolder();
+        }
 
+        public void configure()
+        {
+            blockPosition = new BlockPositionHolder();
         }
     }
 }

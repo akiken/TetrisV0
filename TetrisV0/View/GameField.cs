@@ -37,6 +37,24 @@ namespace TetrisV0.View
             pictureBox.Refresh();
         }
 
+        public void drawBlocks()
+        {
+            int[,] blocks = TetrisInstance.model.blockPosition.blocks;
+
+            for (int y = 0; y < height; y++)
+            {
+                for(int x = 0; x < width; x++)
+                {
+                    if (blocks[x, y] != 0)
+                    {
+                        g.FillRectangle(Brushes.Blue, x * size, y * size, size, size);
+                    }
+                }
+            }
+
+            pictureBox.Refresh();
+        }
+
         PictureBox pictureBox;
         Graphics g;
 

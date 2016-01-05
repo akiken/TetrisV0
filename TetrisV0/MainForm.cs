@@ -19,10 +19,9 @@ namespace TetrisV0
         {
             InitializeComponent();
 
-            TetrisInstance.model = new TetrisModel();
-            TetrisInstance.view = new TetrisView(picturebox_mainfield);
-            TetrisInstance.control = new TetrisControl();
-            
+            TetrisInstance.model.configure();
+            TetrisInstance.view.configure(picturebox_mainfield);
+            TetrisInstance.control.configure();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -32,6 +31,7 @@ namespace TetrisV0
         private void button_debug1_Click(object sender, EventArgs e)
         {
             TetrisInstance.view.field.drawField();
+            TetrisInstance.view.field.drawBlocks();
         }
 
 

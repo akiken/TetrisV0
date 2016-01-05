@@ -13,7 +13,12 @@ namespace TetrisV0.View
     {
         public GameField field;
 
-        public TetrisView(PictureBox pictureBox)
+        public TetrisView()
+        {
+            
+        }
+
+        public void configure(PictureBox pictureBox)
         {
             field = new GameField(pictureBox);
         }
