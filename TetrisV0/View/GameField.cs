@@ -10,11 +10,12 @@ namespace TetrisV0.View
 {
     class GameField
     {
-        public GameField(PictureBox pictureBox)
+        public GameField(MainForm form)
         {
-            this.pictureBox = pictureBox;
-            this.pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
-            this.g = Graphics.FromImage(this.pictureBox.Image);
+            mainForm = form;
+            PictureBox pictureBox = form.getMainFieldPictureBox();
+            pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
+            this.g = Graphics.FromImage(pictureBox.Image);
 
             width = TetrisInstance.model.setting.Width;
             height = TetrisInstance.model.setting.Height;
@@ -34,28 +35,34 @@ namespace TetrisV0.View
                 g.DrawLine(Pens.Black, 0, y * size, width * size, y * size);
             }
 
-            pictureBox.Refresh();
+            mainForm.refreshMainFieldPictureBox();
         }
 
         public void drawBlocks()
         {
-            int[,] blocks = TetrisInstance.model.blockPosition.blocks;
+            int[] blocks = TetrisInstance.model.blockPosition.blocks;
 
             for (int y = 0; y < height; y++)
             {
                 for(int x = 0; x < width; x++)
                 {
-                    if (blocks[x, y] != 0)
+                    if (blocks[x + y * width] != 0)
                     {
                         g.FillRectangle(Brushes.Blue, x * size, y * size, size, size);
                     }
                 }
             }
 
-            pictureBox.Refresh();
+            mainForm.refreshMainFieldPictureBox();
         }
 
-        PictureBox pictureBox;
+        public void notifyUpdateGameField()
+        {
+            drawField();
+            drawBlocks();
+        }
+
+        MainForm mainForm;
         Graphics g;
 
         int width;

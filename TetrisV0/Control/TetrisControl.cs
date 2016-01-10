@@ -12,11 +12,14 @@ namespace TetrisV0.Control
     {
         public TetrisControl()
         {
+            timeControl = TimeControl.GetInstance();
         }
 
         public void configure()
         {
 
         }
+
+        public TimeControl timeControl;
     }
 }

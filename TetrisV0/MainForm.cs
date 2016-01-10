@@ -20,8 +20,38 @@ namespace TetrisV0
             InitializeComponent();
 
             TetrisInstance.model.configure();
-            TetrisInstance.view.configure(picturebox_mainfield);
+            TetrisInstance.view.configure(this);
             TetrisInstance.control.configure();
+        }
+
+        public PictureBox getMainFieldPictureBox()
+        {
+            return picturebox_mainfield;
+        }
+
+        delegate void RefreshCallback(PictureBox target);
+        private void Refresh(PictureBox target)
+        {
+            if (target.InvokeRequired)
+            {
+                RefreshCallback d = new RefreshCallback(Refresh);
+                try
+                {
+                    this.Invoke(d, new object[] { target });
+                }
+                catch
+                {
+                }
+            }
+            else
+            {
+                target.Refresh();
+            }
+        }
+
+        public void refreshMainFieldPictureBox()
+        {
+            Refresh(picturebox_mainfield);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -34,6 +64,9 @@ namespace TetrisV0
             TetrisInstance.view.field.drawBlocks();
         }
 
-
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TetrisInstance.control.timeControl.stop();
+        }
     }
 }

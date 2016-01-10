@@ -18,9 +18,9 @@ namespace TetrisV0.View
             
         }
 
-        public void configure(PictureBox pictureBox)
+        public void configure(MainForm form)
         {
-            field = new GameField(pictureBox);
+            field = new GameField(form);
         }
     }
 }

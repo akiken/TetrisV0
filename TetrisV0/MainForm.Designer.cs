@@ -58,8 +58,10 @@
             this.ClientSize = new System.Drawing.Size(619, 809);
             this.Controls.Add(this.button_debug1);
             this.Controls.Add(this.picturebox_mainfield);
+            this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picturebox_mainfield)).EndInit();
             this.ResumeLayout(false);
