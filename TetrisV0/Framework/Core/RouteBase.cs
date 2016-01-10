@@ -10,5 +10,11 @@ namespace TetrisV0.Framework.Core
     {
         public int ID;
         public ControllerBase controller;
+
+        public RouteBase(int ID, ControllerBase controller)
+        {
+            this.ID = ID;
+            this.controller = controller;
+        }
     }
 }

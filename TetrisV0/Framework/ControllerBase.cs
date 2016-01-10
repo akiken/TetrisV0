@@ -8,10 +8,10 @@ namespace TetrisV0.Framework
 {
     class ControllerBase
     {
-        ViewBase view;
-        ModelBase model;
+        protected ViewBase view;
+        protected ModelBase model;
 
-        class ActionRouting
+        protected class ActionRouting
         {
             public delegate ActionResult daction();
             public int actionID;
@@ -23,7 +23,8 @@ namespace TetrisV0.Framework
                 this.action = action;
             }
         }
-        List<ActionRouting> actionRoutingList;
+
+        protected List<ActionRouting> actionRoutingList;
 
         public ControllerBase()
         {

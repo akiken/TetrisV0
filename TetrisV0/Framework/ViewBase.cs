@@ -8,7 +8,7 @@ namespace TetrisV0.Framework
 {
     class ViewBase : ActionResult
     {
-        ModelBase model;
+        protected ModelBase model;
 
         public ViewBase()
         {

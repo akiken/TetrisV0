@@ -9,10 +9,31 @@ namespace TetrisV0.Framework.Core
     class MVC
     {
         RouteCollection routing;
+        static MVC instance = new MVC();
 
-        public MVC()
+        private MVC()
         {
             routing = new RouteCollection();
+
+            // sample
+            configure(0,    
+                new Sample.Controllers.SampleController(),
+                new Sample.Models.SampleModel(),
+                new Sample.Views.SampleView()
+            );
+        }
+
+        static public MVC Instance()
+        {
+            return instance;
+        }
+
+        public void configure(int controllerID, ControllerBase controller, ModelBase model, ViewBase view)
+        {
+            routing.Add(new RouteBase(controllerID, controller));
+            controller.configure(view, model);
+            model.configure();
+            view.configure(model);
         }
 
         public ActionResult callAction(int controllerID, int actionID)

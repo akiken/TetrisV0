@@ -54,6 +54,9 @@
     <Compile Include="Framework\Core\RouteCollection.cs" />
     <Compile Include="Framework\Core\MVC.cs" />
     <Compile Include="Framework\ModelBase.cs" />
+    <Compile Include="Framework\Sample\Controllers\SampleController.cs" />
+    <Compile Include="Framework\Sample\Models\SampleModel.cs" />
+    <Compile Include="Framework\Sample\Views\SampleView.cs" />
     <Compile Include="Framework\ViewBase.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
