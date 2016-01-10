@@ -48,6 +48,13 @@
   <ItemGroup>
     <Compile Include="Control\TetrisControl.cs" />
     <Compile Include="Control\TimeControl.cs" />
+    <Compile Include="Framework\ActionResult.cs" />
+    <Compile Include="Framework\ControllerBase.cs" />
+    <Compile Include="Framework\Core\RouteBase.cs" />
+    <Compile Include="Framework\Core\RouteCollection.cs" />
+    <Compile Include="Framework\Core\MVC.cs" />
+    <Compile Include="Framework\ModelBase.cs" />
+    <Compile Include="Framework\ViewBase.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
