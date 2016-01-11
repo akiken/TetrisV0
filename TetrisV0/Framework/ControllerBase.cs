@@ -25,7 +25,7 @@ namespace TetrisV0.Framework
             }
         }
 
-        protected List<ActionRouting> actionRoutingList;
+        private List<ActionRouting> actionRoutingList;
 
         public ControllerBase()
         {
@@ -37,6 +37,20 @@ namespace TetrisV0.Framework
         {
             this.view = view;
             this.model = model;
+        }
+
+        protected void addActionRoute(ActionRouting route)
+        {
+            // アクションIDの重複チェック
+            foreach (ActionRouting action in actionRoutingList)
+            {
+                if (action.actionID == route.actionID)
+                {
+                    throw new Exception("[ERROR]Multiple definition of action ID.");
+                }
+            }
+
+            actionRoutingList.Add(route);
         }
 
         public ActionResult callAction(int ID, ArgBag arg)
@@ -60,12 +74,12 @@ namespace TetrisV0.Framework
             }
         }
 
-        public ViewBase DefaultAction(ArgBag arg)
+        public ActionResult DefaultAction(ArgBag arg)
         {
             return View();
         }
 
-        public ViewBase View()
+        public ActionResult View()
         {
             return view;
         }

@@ -25,6 +25,7 @@ namespace TetrisV0
             TetrisInstance.control.configure();
 
             MVC.Instance().configure(1, new MainGameControl(), new MainGameModel(), new MainGameView(this));
+            MVC.Instance().callAction(1, MainGameControl.ID_START);
         }
 
         public PictureBox getMainFieldPictureBox()
@@ -63,7 +64,7 @@ namespace TetrisV0
 
         private void button_debug1_Click(object sender, EventArgs e)
         {
-            MVC.Instance().callAction(1, (int)MainGameControl.AID.ID_Draw).ExecuteResult();
+            MVC.Instance().callAction(1, MainGameControl.ID_STOP).ExecuteResult();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

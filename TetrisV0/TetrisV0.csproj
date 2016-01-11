@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TetrisV0</RootNamespace>
     <AssemblyName>TetrisV0</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +53,7 @@
     <Compile Include="Control\TimeControl.cs" />
     <Compile Include="Framework\ActionResult.cs" />
     <Compile Include="Framework\ControllerBase.cs" />
+    <Compile Include="Framework\ControllerTimeBase.cs" />
     <Compile Include="Framework\Core\ArgBag.cs" />
     <Compile Include="Framework\Core\ArgNull.cs" />
     <Compile Include="Framework\Core\RouteBase.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

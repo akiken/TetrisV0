@@ -30,10 +30,24 @@ namespace TetrisV0.Framework.Core
 
         public void configure(int controllerID, ControllerBase controller, ModelBase model, ViewBase view)
         {
-            routing.Add(new RouteBase(controllerID, controller));
+            addControllerRoute(new RouteBase(controllerID, controller));
             controller.configure(view, model);
             model.configure();
             view.configure(model);
+        }
+
+        protected void addControllerRoute(RouteBase route)
+        {
+            // コントローラIDの重複チェック
+            foreach (RouteBase cur in routing)
+            {
+                if (cur.ID == route.ID)
+                {
+                    throw new Exception("[ERROR] Multiple definition of controller ID.");
+                }
+            }
+
+            routing.Add(route);
         }
 
         public ActionResult callAction(int controllerID, int actionID, ArgBag arg)

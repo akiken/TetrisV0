@@ -16,11 +16,11 @@ namespace TetrisV0.Framework.Sample.Controllers
 
         public SampleController()
         {
-            actionRoutingList.Add(new ActionRouting((int)AID.Action1, Action1));
-            actionRoutingList.Add(new ActionRouting((int)AID.Action2, Action2));
+            addActionRoute(new ActionRouting((int)AID.Action1, Action1));
+            addActionRoute(new ActionRouting((int)AID.Action2, Action2));
         }
 
-        public ViewBase Action1(ArgBag arg)
+        public ActionResult Action1(ArgBag arg)
         {
             if (arg.isNotType("ArgNull"))
             {
@@ -32,7 +32,7 @@ namespace TetrisV0.Framework.Sample.Controllers
             return View();
         }
 
-        public ViewBase Action2(ArgBag arg)
+        public ActionResult Action2(ArgBag arg)
         {
             if (arg.isNotType("ArgNull"))
             {
