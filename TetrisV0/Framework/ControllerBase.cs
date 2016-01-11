@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TetrisV0.Framework.Core;
 
 namespace TetrisV0.Framework
 {
@@ -13,7 +14,7 @@ namespace TetrisV0.Framework
 
         protected class ActionRouting
         {
-            public delegate ActionResult daction();
+            public delegate ActionResult daction(ArgBag arg);
             public int actionID;
             public daction action;
 
@@ -38,7 +39,7 @@ namespace TetrisV0.Framework
             this.model = model;
         }
 
-        public ActionResult callAction(int ID)
+        public ActionResult callAction(int ID, ArgBag arg)
         {
             ActionRouting target = null;
             foreach (ActionRouting action in actionRoutingList)
@@ -51,7 +52,7 @@ namespace TetrisV0.Framework
 
             if(null != target)
             {
-                return target.action();
+                return target.action(arg);
             }
             else
             {
@@ -59,7 +60,7 @@ namespace TetrisV0.Framework
             }
         }
 
-        public ViewBase DefaultAction()
+        public ViewBase DefaultAction(ArgBag arg)
         {
             return View();
         }

@@ -16,7 +16,7 @@ namespace TetrisV0.Framework.Core
             routing = new RouteCollection();
 
             // sample
-            configure(0,    
+            configure(0,
                 new Sample.Controllers.SampleController(),
                 new Sample.Models.SampleModel(),
                 new Sample.Views.SampleView()
@@ -36,12 +36,12 @@ namespace TetrisV0.Framework.Core
             view.configure(model);
         }
 
-        public ActionResult callAction(int controllerID, int actionID)
+        public ActionResult callAction(int controllerID, int actionID, ArgBag arg)
         {
             RouteBase target = null;
             foreach (RouteBase route in routing)
             {
-                if(route.ID == controllerID)
+                if (route.ID == controllerID)
                 {
                     target = route;
                 }
@@ -49,12 +49,17 @@ namespace TetrisV0.Framework.Core
 
             if (null != target)
             {
-                return target.controller.callAction(actionID);
+                return target.controller.callAction(actionID, arg);
             }
             else
             {
                 return null;
             }
+        }
+
+        public ActionResult callAction(int controllerID, int actionID)
+        {
+            return callAction(controllerID, actionID, new ArgNull());
         }
     }
 }

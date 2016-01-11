@@ -46,10 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\ControlBase.cs" />
+    <Compile Include="Control\MainGameControl.cs" />
     <Compile Include="Control\TetrisControl.cs" />
     <Compile Include="Control\TimeControl.cs" />
     <Compile Include="Framework\ActionResult.cs" />
     <Compile Include="Framework\ControllerBase.cs" />
+    <Compile Include="Framework\Core\ArgBag.cs" />
+    <Compile Include="Framework\Core\ArgNull.cs" />
     <Compile Include="Framework\Core\RouteBase.cs" />
     <Compile Include="Framework\Core\RouteCollection.cs" />
     <Compile Include="Framework\Core\MVC.cs" />
@@ -66,11 +70,13 @@
     </Compile>
     <Compile Include="Model\BlockPositionHolder.cs" />
     <Compile Include="Model\GameSetting.cs" />
+    <Compile Include="Model\MainGameModel.cs" />
     <Compile Include="Model\TetrisModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TetrisInstance.cs" />
     <Compile Include="View\GameField.cs" />
+    <Compile Include="View\MainGameView.cs" />
     <Compile Include="View\TetrisView.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

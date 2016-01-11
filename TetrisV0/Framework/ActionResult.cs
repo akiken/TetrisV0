@@ -8,5 +8,6 @@ namespace TetrisV0.Framework
 {
     public abstract class ActionResult
     {
+        public abstract void ExecuteResult();
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TetrisV0.Framework.Core;
 
 namespace TetrisV0.Framework.Sample.Controllers
 {
@@ -19,13 +20,27 @@ namespace TetrisV0.Framework.Sample.Controllers
             actionRoutingList.Add(new ActionRouting((int)AID.Action2, Action2));
         }
 
-        public ViewBase Action1()
+        public ViewBase Action1(ArgBag arg)
         {
+            if (arg.isNotType("ArgNull"))
+            {
+                throw new Exception("[ERROR] Invalid argument.");
+            }
+
+            arg = (ArgNull)arg;
+
             return View();
         }
 
-        public ViewBase Action2()
+        public ViewBase Action2(ArgBag arg)
         {
+            if (arg.isNotType("ArgNull"))
+            {
+                throw new Exception("[ERROR] Invalid argument.");
+            }
+
+            arg = (ArgNull)arg;
+
             return View();
         }
     }

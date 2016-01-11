@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TetrisV0.Control;
+using TetrisV0.Framework.Core;
 using TetrisV0.Model;
 using TetrisV0.View;
 
@@ -22,6 +23,8 @@ namespace TetrisV0
             TetrisInstance.model.configure();
             TetrisInstance.view.configure(this);
             TetrisInstance.control.configure();
+
+            MVC.Instance().configure(1, new MainGameControl(), new MainGameModel(), new MainGameView(this));
         }
 
         public PictureBox getMainFieldPictureBox()
@@ -60,8 +63,7 @@ namespace TetrisV0
 
         private void button_debug1_Click(object sender, EventArgs e)
         {
-            TetrisInstance.view.field.drawField();
-            TetrisInstance.view.field.drawBlocks();
+            MVC.Instance().callAction(1, (int)MainGameControl.AID.ID_Draw).ExecuteResult();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

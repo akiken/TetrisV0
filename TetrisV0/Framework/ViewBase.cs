@@ -19,5 +19,9 @@ namespace TetrisV0.Framework
         {
             this.model = model;
         }
+
+        public override void ExecuteResult()
+        {
+        }
     }
 }
