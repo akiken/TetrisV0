@@ -118,5 +118,46 @@ namespace TetrisV0.Model
                 }
             }
         }
+
+        private void movingBlocksRight()
+        {
+            int width = Width;
+            int height = Height;
+            int size = width * height;
+
+            // 移動中ブロックの位置更新
+            List<int> moveBlockList = new List<int>();
+            bool bEnableMove = true;
+            for (int i = 0; i < size; i++)
+            {
+                if (blocks[i] < 0) // if(移動中ブロックである)
+                {
+                    moveBlockList.Add(i);
+                    if (((i + 1) % width) != 0)
+                    {
+                        if (0 == blocks[i + 1])
+                        {
+                        }
+                        else
+                        {
+                            bEnableMove = false;
+                        }
+                    }
+                    else
+                    {
+                        bEnableMove = false;
+                    }
+                }
+            }
+
+            if (bEnableMove)
+            {
+                foreach (int i in moveBlockList)
+                {
+                    blocks[i + 1] = blocks[i];
+                    blocks[i] = 0;
+                }
+            }
+        }
     }
 }

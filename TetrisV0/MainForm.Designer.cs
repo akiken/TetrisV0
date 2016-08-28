@@ -59,10 +59,14 @@
             this.Controls.Add(this.button_debug1);
             this.Controls.Add(this.picturebox_mainfield);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picturebox_mainfield)).EndInit();
             this.ResumeLayout(false);
 

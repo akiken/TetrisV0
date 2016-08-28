@@ -71,5 +71,23 @@ namespace TetrisV0
         {
             TetrisInstance.control.timeControl.stop();
         }
+
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A)
+            {
+                MVC.Instance().callAction(1, MainGameControl.ID_KeyRight).ExecuteResult();
+            }
+        }
+
+        private void MainForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
+        }
+
     }
 }
